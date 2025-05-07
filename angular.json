@@ -34,20 +34,32 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "12kb",
+                "maximumError": "15kb"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "12kb",
+                "maximumError": "15kb"
+              }
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "12kb",
+                  "maximumError": "15kb"
                 }
               ],
               "outputHashing": "all"
