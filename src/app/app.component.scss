@@ -87,6 +87,7 @@ header {
     background-size: cover;
     background-position: center;
     position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:before {
       content: "";
@@ -111,6 +112,11 @@ header {
       background: transparent;
       border: 1px solid rgba(166, 125, 80, 0.2);
       z-index: -2;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     }
   }
 
@@ -152,11 +158,7 @@ header {
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(
-      135deg,
-      rgba(55, 55, 55, 0.95),
-      rgba(35, 35, 35, 0.98)
-    );
+    background: linear-gradient(135deg, rgba(55, 55, 55, 0.95), rgba(35, 35, 35, 0.98));
     padding: 1.2rem 1.5rem;
     border-radius: 14px;
     align-self: flex-start;
@@ -165,17 +167,13 @@ header {
     position: relative;
     overflow: hidden;
     min-width: 240px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     transform-origin: right center;
     margin-right: 2rem;
-
-    &:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 20px rgba(0, 0, 0, 0.2);
-    }
+    border: 1px solid rgba(255,255,255,0.2);
 
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -186,24 +184,24 @@ header {
     }
 
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(
-        circle at top right,
-        rgba(166, 125, 80, 0.3),
-        transparent 70%
-      );
+      background: radial-gradient(circle at top right, rgba(166, 125, 80, 0.3), transparent 70%);
       pointer-events: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
 
     span {
       position: relative;
       z-index: 1;
-      font-size: 18px !important;
+      color: $beige-light;
 
       &:first-child {
         font-weight: 700;
@@ -214,7 +212,7 @@ header {
         text-transform: uppercase;
 
         &:after {
-          content: "";
+          content: '';
           display: block;
           width: 250px;
           height: 3px;
@@ -225,12 +223,7 @@ header {
       }
 
       &:last-child {
-        font-size: 18px !important;
-        color: $beige-light;
-        font-weight: 600;
-        display: inline-block;
-        position: relative;
-        padding-left: 2px;
+        color: white;
       }
     }
   }
@@ -373,6 +366,13 @@ main {
       border-radius: 15px;
       font-size: 18px !important;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $accent;
+        transform: translateX(5px);
+        cursor: default;
+      }
     }
   }
 }
@@ -470,11 +470,49 @@ main {
 
 // Styles pour la section alternance
 .alternance-info {
+  position: relative;
   padding: 1rem;
-  background-color: rgba(245, 242, 234, 0.5);
-  border-radius: 10px;
-  border-left: 3px solid $accent;
-  margin-top: 0.2rem;
+  border-radius: 8px;
+  background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(255,255,255,0.4));
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 0 15px rgba($accent, 0.3);
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, $accent, transparent);
+    border-radius: 10px;
+    opacity: 1;
+    z-index: -1;
+  }
+
+  &:hover {
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+  }
+
+  .alternance-item {
+    h4 {
+      color: black;
+      font-weight: 700;
+    }
+    
+    p {
+      color: black;
+      font-weight: 500;
+      
+      &:nth-child(3) {
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        font-weight: 600;
+      }
+    }
+  }
 }
 
 .alternance-item {
@@ -520,7 +558,7 @@ main {
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
 
   .project-header {
@@ -576,6 +614,13 @@ main {
       border-radius: 4px;
       font-size: 18px !important;
       font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: $accent;
+        color: white;
+        transform: scale(1.05);
+      }
     }
   }
 }
@@ -588,6 +633,12 @@ main {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   border-left: 3px solid $accent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: translateX(3px);
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -675,11 +726,17 @@ main {
     margin-bottom: 0.1rem;
     padding: 0.2rem;
     border-radius: 6px;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s ease;
     font-size: 18px !important;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.6);
+      transform: translateX(5px);
+      color: $accent;
+      
+      i {
+        transform: rotate(360deg);
+        transition: transform 0.5s ease;
+      }
     }
 
     i,
@@ -719,6 +776,13 @@ p, span, li, .pop {
     border-left: 2px solid $accent;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateX(5px);
+      background-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 8px rgba($accent, 0.2);
+    }
 
     h4 {
       color: $accent;
@@ -755,6 +819,24 @@ p, span, li, .pop {
           left: 0;
         }
       }
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.2rem;
+    }
+
+    .year-bubble {
+      background: $accent;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 55px;
+      text-align: center;
     }
   }
 }
