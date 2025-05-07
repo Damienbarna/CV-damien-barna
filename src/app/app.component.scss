@@ -492,7 +492,7 @@ main {
   }
 
   &:hover {
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
     transform: scale(1.1);
   }
 
