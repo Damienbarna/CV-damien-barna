@@ -859,28 +859,20 @@ h3 + .diploma {
 
 .profile-card {
   position: relative;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
   background: linear-gradient(45deg, rgba(45,45,45,0.98), rgba(35,35,35,0.98));
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  border: 1px solid rgba(255,255,255,0.1);
-  width: 500px;
+  border: 1px solid rgb(221, 226, 189);
+  width: 400px;
   height: 150px;
-  margin-right: 2rem;
   transition: all 0.3s ease-out;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, $accent, transparent 90%);
-  }
+ 
 
   p {
     color: #fff;
@@ -888,6 +880,16 @@ h3 + .diploma {
     margin-bottom: 0.5rem;
     font-size: 0.85rem;
     letter-spacing: 0.3px;
+
+    .highlight {
+      color: $accent;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: lighten($accent, 10%);
+      }
+    }
   }
 
   .profile-highlights {
